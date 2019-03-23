@@ -27,26 +27,26 @@
         </javaTypeResolver>
 
         <!-- 数据表对应的model层  -->
-        <javaModelGenerator targetPackage="com.chukyotech.server.admin"
+        <javaModelGenerator targetPackage="com.chukyotech.server.user"
                             targetProject="/Users/user/IdeaProjects/wangyafei0127.github.io/server/src/main/java">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
         <!-- sql mapper 映射配置文件 -->
-        <sqlMapGenerator targetPackage="com.chukyotech.server.admin"
+        <sqlMapGenerator targetPackage="com.chukyotech.server.user"
                          targetProject="/Users/user/IdeaProjects/wangyafei0127.github.io/server/src/main/java">
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
 
         <!-- mybatis3中的mapper接口 -->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.chukyotech.server.admin"
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.chukyotech.server.user"
                              targetProject="/Users/user/IdeaProjects/wangyafei0127.github.io/server/src/main/java">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
         <!-- 数据表进行生成操作 schema:相当于库名; tableName:表名; domainObjectName:对应的DO -->
-        <table schema="chukyo_schema" tableName="admin_table" domainObjectName="Admin"
+        <table schema="chukyo_schema" tableName="user_table" domainObjectName="User"
                enableCountByExample="false"
                enableUpdateByExample="false"
                enableDeleteByExample="false"

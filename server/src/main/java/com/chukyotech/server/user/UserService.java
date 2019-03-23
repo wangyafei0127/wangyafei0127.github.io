@@ -9,7 +9,8 @@ public class UserService {
     @Autowired
     private UserMapper userMapper;
 
-    public void insertUser(String name, int age, String language, String phone) {
-        userMapper.insert(name, age, language, phone);
+    public User selectUserById(int id) {
+        return userMapper.selectByPrimaryKey(id);
     }
+
 }

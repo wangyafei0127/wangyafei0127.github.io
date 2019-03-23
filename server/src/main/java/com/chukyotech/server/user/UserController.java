@@ -1,21 +1,18 @@
 package com.chukyotech.server.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 public class UserController {
 
     @Autowired
     private UserService userService;
 
-    @PostMapping("/user")
-    public String handleUser(@ModelAttribute(value = "user") User user, Model model) {
-        userService.insertUser(user.getName(), user.getAge(), user.getLanguage(), user.getPhone());
-        model.addAttribute("user", user);
-        return "user";
+    @GetMapping("/getUser/{id}")
+    public User selectUserById(@PathVariable("id") int id) {
+        return userService.selectUserById(id);
     }
 }

@@ -1,15 +1,20 @@
 package com.chukyotech.server.user;
 
-import org.apache.ibatis.annotations.Insert;
+import com.chukyotech.server.user.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 @Mapper
 public interface UserMapper {
+    int deleteByPrimaryKey(Integer id);
 
-    @Insert("insert into chukyo_user (name, age, language, phone) values (#{name}, #{age}, #{language}, #{phone})")
-    void insert(@Param("name") String name,
-                @Param("age") int age,
-                @Param("language") String language,
-                @Param("phone") String phone);
+    int insert(User record);
+
+    int insertSelective(User record);
+
+    User selectByPrimaryKey(@Param("id") int id);
+
+    int updateByPrimaryKeySelective(User record);
+
+    int updateByPrimaryKey(User record);
 }
