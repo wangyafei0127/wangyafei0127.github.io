@@ -9,3 +9,4 @@ src/main/java/com/chukyotech/server/ServerApplication.java
 src/main/resources/application.properties
 src/main/resources/static/
 src/test/
+server/src/main/resources/static/
