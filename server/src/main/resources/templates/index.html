@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+</head>
+<body style="text-align: center; margin-top: 200px">
+    <div>
+        <h1>欢迎登录中京国际后台管理系统</h1>
+    </div>
+    <div style="margin-top: 50px">
+        <!--/*@thymesVar id="admin" type="com.chukyotech.server.admin.Admin"*/-->
+        <form action="login" method="post" th:object="${admin}">
+            <p>用户名：<input type="text" name="admin_name"></p>
+            <p>密码：&nbsp;&nbsp;&nbsp;<input type="text" name="admin_pass"></p>
+            <p><input type="submit" name="submit"></p>
+        </form>
+    </div>
+</body>
+</html>

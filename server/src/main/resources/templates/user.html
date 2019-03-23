@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>User</title>
+</head>
+<body>
+    <!--/*@thymesVar id="user" type="com.chukyotech.server.user.User"*/-->
+    <h1 th:text="${user.name}"></h1>
+    <h1 th:text="${user.age}"></h1>
+    <h1 th:text="${user.language}"></h1>
+    <h1 th:text="${user.phone}"></h1>
+</body>
+</html>
