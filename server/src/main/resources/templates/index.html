@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <title>index</title>
 </head>
-<body style="text-align: center; margin-top: 200px">
+<body style="text-align: center; margin-top: 100px">
     <div>
         <h1>欢迎登录中京国际后台管理系统</h1>
     </div>
-    <div style="margin-top: 50px">
+    <div style="margin-top: 150px">
         <!--/*@thymesVar id="admin" type="com.chukyotech.server.admin.Admin"*/-->
         <form action="login" method="post" th:object="${admin}">
-            <p>用户名：<input type="text" name="admin_name"></p>
-            <p>密码：&nbsp;&nbsp;&nbsp;<input type="text" name="admin_pass"></p>
+            <p>用户名：<input type="text" name="adminName"></p>
+            <p>密码：&nbsp;&nbsp;&nbsp;<input type="text" name="adminPass"></p>
             <p><input type="submit" name="submit"></p>
         </form>
     </div>

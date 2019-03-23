@@ -1,7 +1,6 @@
 package com.chukyotech.server.admin;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,6 +27,11 @@ public class AdminController {
 
     @PostMapping("/login")
     public String login(@ModelAttribute("admin") Admin admin) {
+        Admin adminDb = adminService.selectByName(admin.getAdminName());
+        String adminPassDb = adminDb.getAdminPass();
+        if (admin.getAdminPass().equals(adminPassDb)) {
+            return "home";
+        }
         return "redirect:/index";
     }
 }
