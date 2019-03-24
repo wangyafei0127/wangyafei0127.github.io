@@ -10,6 +10,13 @@ public interface UserMapper {
 
     int insert(User record);
 
+    int insertUser(@Param("userName") String userName,
+                   @Param("userAge") Integer userAge,
+                   @Param("userPhone") String userPhone,
+                   @Param("userAddres") String userAddres,
+                   @Param("userLanguage") String userLanguage,
+                   @Param("userEmail") String userEmail);
+
     int insertSelective(User record);
 
     User selectByPrimaryKey(@Param("id") int id);

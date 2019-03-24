@@ -1,117 +1,129 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.chukyotech.server.user.UserMapper">
-  <resultMap id="BaseResultMap" type="com.chukyotech.server.user.User">
-    <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="user_name" jdbcType="VARCHAR" property="userName" />
-    <result column="user_age" jdbcType="INTEGER" property="userAge" />
-    <result column="user_phone" jdbcType="VARCHAR" property="userPhone" />
-    <result column="user_addres" jdbcType="VARCHAR" property="userAddres" />
-    <result column="user_language" jdbcType="VARCHAR" property="userLanguage" />
-    <result column="user_email" jdbcType="VARCHAR" property="userEmail" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    id, user_name, user_age, user_phone, user_addres, user_language, user_email
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from user_table
-    where id = #{id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from user_table
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="com.chukyotech.server.user.User">
-    insert into user_table (id, user_name, user_age, 
-      user_phone, user_addres, user_language, 
-      user_email)
-    values (#{id,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{userAge,jdbcType=INTEGER}, 
-      #{userPhone,jdbcType=VARCHAR}, #{userAddres,jdbcType=VARCHAR}, #{userLanguage,jdbcType=VARCHAR}, 
-      #{userEmail,jdbcType=VARCHAR})
-  </insert>
-  <insert id="insertSelective" parameterType="com.chukyotech.server.user.User">
-    insert into user_table
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        id,
-      </if>
-      <if test="userName != null">
-        user_name,
-      </if>
-      <if test="userAge != null">
-        user_age,
-      </if>
-      <if test="userPhone != null">
-        user_phone,
-      </if>
-      <if test="userAddres != null">
-        user_addres,
-      </if>
-      <if test="userLanguage != null">
-        user_language,
-      </if>
-      <if test="userEmail != null">
-        user_email,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="userName != null">
-        #{userName,jdbcType=VARCHAR},
-      </if>
-      <if test="userAge != null">
+    <resultMap id="BaseResultMap" type="com.chukyotech.server.user.User">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="user_name" jdbcType="VARCHAR" property="userName" />
+        <result column="user_age" jdbcType="INTEGER" property="userAge" />
+        <result column="user_phone" jdbcType="VARCHAR" property="userPhone" />
+        <result column="user_addres" jdbcType="VARCHAR" property="userAddres" />
+        <result column="user_language" jdbcType="VARCHAR" property="userLanguage" />
+        <result column="user_email" jdbcType="VARCHAR" property="userEmail" />
+    </resultMap>
+    <sql id="Base_Column_List">
+        id, user_name, user_age, user_phone, user_addres, user_language, user_email
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from user_table
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete from user_table
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+
+    <insert id="insert" parameterType="com.chukyotech.server.user.User">
+        insert into user_table (id, user_name, user_age,
+        user_phone, user_addres, user_language,
+        user_email)
+        values (#{id, jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{userAge,jdbcType=INTEGER},
+        #{userPhone,jdbcType=VARCHAR}, #{userAddres,jdbcType=VARCHAR}, #{userLanguage,jdbcType=VARCHAR},
+        #{userEmail,jdbcType=VARCHAR})
+    </insert>
+
+    <insert id="insertUser" parameterType="com.chukyotech.server.user.User">
+        insert into user_table (user_name, user_age, user_phone, user_addres, user_language, user_email)
+        values (#{userName,jdbcType=VARCHAR},
         #{userAge,jdbcType=INTEGER},
-      </if>
-      <if test="userPhone != null">
         #{userPhone,jdbcType=VARCHAR},
-      </if>
-      <if test="userAddres != null">
         #{userAddres,jdbcType=VARCHAR},
-      </if>
-      <if test="userLanguage != null">
         #{userLanguage,jdbcType=VARCHAR},
-      </if>
-      <if test="userEmail != null">
-        #{userEmail,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.chukyotech.server.user.User">
-    update user_table
-    <set>
-      <if test="userName != null">
-        user_name = #{userName,jdbcType=VARCHAR},
-      </if>
-      <if test="userAge != null">
+        #{userEmail,jdbcType=VARCHAR})
+    </insert>
+
+    <insert id="insertSelective" parameterType="com.chukyotech.server.user.User">
+        insert into user_table
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="userName != null">
+                user_name,
+            </if>
+            <if test="userAge != null">
+                user_age,
+            </if>
+            <if test="userPhone != null">
+                user_phone,
+            </if>
+            <if test="userAddres != null">
+                user_addres,
+            </if>
+            <if test="userLanguage != null">
+                user_language,
+            </if>
+            <if test="userEmail != null">
+                user_email,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="userName != null">
+                #{userName,jdbcType=VARCHAR},
+            </if>
+            <if test="userAge != null">
+                #{userAge,jdbcType=INTEGER},
+            </if>
+            <if test="userPhone != null">
+                #{userPhone,jdbcType=VARCHAR},
+            </if>
+            <if test="userAddres != null">
+                #{userAddres,jdbcType=VARCHAR},
+            </if>
+            <if test="userLanguage != null">
+                #{userLanguage,jdbcType=VARCHAR},
+            </if>
+            <if test="userEmail != null">
+                #{userEmail,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.chukyotech.server.user.User">
+        update user_table
+        <set>
+            <if test="userName != null">
+                user_name = #{userName,jdbcType=VARCHAR},
+            </if>
+            <if test="userAge != null">
+                user_age = #{userAge,jdbcType=INTEGER},
+            </if>
+            <if test="userPhone != null">
+                user_phone = #{userPhone,jdbcType=VARCHAR},
+            </if>
+            <if test="userAddres != null">
+                user_addres = #{userAddres,jdbcType=VARCHAR},
+            </if>
+            <if test="userLanguage != null">
+                user_language = #{userLanguage,jdbcType=VARCHAR},
+            </if>
+            <if test="userEmail != null">
+                user_email = #{userEmail,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.chukyotech.server.user.User">
+        update user_table
+        set user_name = #{userName,jdbcType=VARCHAR},
         user_age = #{userAge,jdbcType=INTEGER},
-      </if>
-      <if test="userPhone != null">
         user_phone = #{userPhone,jdbcType=VARCHAR},
-      </if>
-      <if test="userAddres != null">
         user_addres = #{userAddres,jdbcType=VARCHAR},
-      </if>
-      <if test="userLanguage != null">
         user_language = #{userLanguage,jdbcType=VARCHAR},
-      </if>
-      <if test="userEmail != null">
-        user_email = #{userEmail,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.chukyotech.server.user.User">
-    update user_table
-    set user_name = #{userName,jdbcType=VARCHAR},
-      user_age = #{userAge,jdbcType=INTEGER},
-      user_phone = #{userPhone,jdbcType=VARCHAR},
-      user_addres = #{userAddres,jdbcType=VARCHAR},
-      user_language = #{userLanguage,jdbcType=VARCHAR},
-      user_email = #{userEmail,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
+        user_email = #{userEmail,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
 </mapper>

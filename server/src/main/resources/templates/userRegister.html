@@ -9,12 +9,14 @@
     <h1>中京国际后台管理系统</h1>
 
     <div style="margin-top: 150px">
-        <!--/*@thymesVar id="use" type="com.chukyotech.server.use.User"*/-->
-        <form action="user" method="post" th:object="${user}">
-            <p>姓名：<input type="text" name="name"></p>
-            <p>年龄：<input type="text" name="age"></p>
-            <p>技术：<input type="text" name="language"></p>
-            <p>电话：<input type="text" name="phone"></p>
+        <!--/*@thymesVar id="user" type="com.chukyotech.server.user.User"*/-->
+        <form action="userInsert" method="post" th:object="${user}">
+            <p>姓名：<input type="text" name="userName"></p>
+            <p>年龄：<input type="text" name="userAge"></p>
+            <p>电话：<input type="text" name="userPhone"></p>
+            <p>住址：<input type="text" name="userAddres"></p>
+            <p>技术：<input type="text" name="userLanguage"></p>
+            <p>邮箱：<input type="text" name="userEmail"></p>
             <p><input type="submit" name="提交"></p>
         </form>
     </div>

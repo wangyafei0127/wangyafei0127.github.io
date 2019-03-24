@@ -13,4 +13,9 @@ public class UserService {
         return userMapper.selectByPrimaryKey(id);
     }
 
+
+    public void insertUser(String userName, int userAge, String userPhone, String userAdress,
+                           String userLanguage, String userEmail) {
+        userMapper.insertUser(userName, userAge, userPhone, userAdress, userLanguage, userEmail);
+    }
 }

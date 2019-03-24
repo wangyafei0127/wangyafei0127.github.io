@@ -1,11 +1,10 @@
 package com.chukyotech.server.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
-@RestController
+@Controller
 public class UserController {
 
     @Autowired
@@ -14,5 +13,12 @@ public class UserController {
     @GetMapping("/getUser/{id}")
     public User selectUserById(@PathVariable("id") int id) {
         return userService.selectUserById(id);
+    }
+
+    @PostMapping("/userInsert")
+    public String insertUser(@ModelAttribute("user") User user) {
+        userService.insertUser(user.getUserName(), user.getUserAge(), user.getUserPhone(), user.getUserAddres(),
+                user.getUserLanguage(), user.getUserEmail());
+        return "redirect:userRegister";
     }
 }
