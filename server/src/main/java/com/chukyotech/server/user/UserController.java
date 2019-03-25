@@ -3,6 +3,7 @@ package com.chukyotech.server.user;
 import com.chukyotech.server.controller.PageController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
@@ -29,5 +30,11 @@ public class UserController {
     @GetMapping("/userRegister")
     public String userRegister() {
         return "userRegister";
+    }
+
+    @GetMapping("/userSelect")
+    public String userSelect(Model model) {
+        model.addAttribute("userList", userService.selectUsers());
+        return "userSelect";
     }
 }

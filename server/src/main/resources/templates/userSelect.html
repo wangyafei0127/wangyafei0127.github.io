@@ -32,6 +32,9 @@
                         <a href="userRegister">会员注册</a>
                     </div>
                     <div style="margin-left: 10px; padding-top: 30px">
+                        <a href="userSelect">会员查询</a>
+                    </div>
+                    <div style="margin-left: 10px; padding-top: 30px">
                         <a href="">修改会员信息</a>
                     </div>
                 </td>
@@ -42,12 +45,36 @@
         <table border="1" style="text-align: center">
             <tr>
                 <td width="1000px" height="550px">
-                    <h1>欢迎登录中京国际后台管理平台！</h1>
+                    <h1>查询会员</h1>
+                    <div>
+                        <table border="1" width="1000px">
+                            <thead>
+                            <th>Id</th>
+                            <th>姓名</th>
+                            <th>年龄</th>
+                            <th>电话</th>
+                            <th>住址</th>
+                            <th>技术</th>
+                            <th>邮箱</th>
+                            </thead>
+                            <tbody>
+                            <tr th:each="user:${userList}">
+                                <!--/*@thymesVar id="count" type="com.chukyotech.server.user.User"*/-->
+                                <td th:text="${user.getId()}"></td>
+                                <td th:text="${user.getUserName()}"></td>
+                                <td th:text="${user.getUserAge()}"></td>
+                                <td th:text="${user.getUserPhone()}"></td>
+                                <td th:text="${user.getUserAddres()}"></td>
+                                <td th:text="${user.getUserLanguage()}"></td>
+                                <td th:text="${user.getUserEmail()}"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </td>
             </tr>
         </table>
     </div>
-
 </div>
 </body>
 </html>
