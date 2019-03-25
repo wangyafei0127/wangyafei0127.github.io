@@ -1,11 +1,11 @@
 package com.chukyotech.server.admin;
 
+import com.chukyotech.server.controller.PageController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class AdminController {
@@ -13,11 +13,12 @@ public class AdminController {
     @Autowired
     private AdminService adminService;
 
-    @RequestMapping("/select")
-    public String select() {
-        Admin admin = adminService.selectByName("admin");
-        System.out.println(admin.getAdminPass());
-        return "index";
+    @Autowired
+    private PageController pageController;
+
+    @GetMapping("/adminLogin")
+    public String adminLogin() {
+        return "adminLogin";
     }
 
     @PostMapping("/login")
@@ -27,11 +28,17 @@ public class AdminController {
         if (admin.getAdminPass().equals(adminPassDb)) {
             return "home";
         }
-        return "redirect:/index";
+        return "redirect:/home";
     }
 
-    @GetMapping("/userRegister")
-    public String userRegister() {
-        return "userRegister";
+    @GetMapping("/adminRegisterPage")
+    public String adminRegisterPage() {
+        return "adminRegisterPage";
+    }
+
+    @PostMapping("/adminRegister")
+    public String adminRegister(@ModelAttribute("admin") Admin admin) {
+        adminService.insertAdmin(admin.getAdminName(), admin.getAdminPass());
+        return pageController.home();
     }
 }

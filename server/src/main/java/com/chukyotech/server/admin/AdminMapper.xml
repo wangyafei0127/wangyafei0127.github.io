@@ -9,8 +9,8 @@
     </resultMap>
 
     <sql id="Base_Column_List">
-    id, admin_name, admin_pass
-  </sql>
+        id, admin_name, admin_pass
+    </sql>
 
     <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         select
@@ -27,15 +27,20 @@
     </select>
 
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from admin_table
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
+        delete from admin_table
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+
     <insert id="insert" parameterType="com.chukyotech.server.admin.Admin">
-    insert into admin_table (id, admin_name, admin_pass
-      )
-    values (#{id,jdbcType=INTEGER}, #{adminName,jdbcType=VARCHAR}, #{adminPass,jdbcType=VARCHAR}
-      )
-  </insert>
+        insert into admin_table (id, admin_name, admin_pass)
+        values (#{id,jdbcType=INTEGER}, #{adminName,jdbcType=VARCHAR}, #{adminPass,jdbcType=VARCHAR})
+    </insert>
+
+    <insert id="insertAdmin" parameterType="com.chukyotech.server.admin.Admin">
+        insert into admin_table (admin_name, admin_pass)
+        values (#{adminName,jdbcType=VARCHAR}, #{adminPass,jdbcType=VARCHAR})
+    </insert>
+
     <insert id="insertSelective" parameterType="com.chukyotech.server.admin.Admin">
         insert into admin_table
         <trim prefix="(" suffix=")" suffixOverrides=",">

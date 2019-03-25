@@ -12,4 +12,8 @@ public class AdminService {
     public Admin selectByName(String name) {
         return adminMapper.selectByName(name);
     }
+
+    public void insertAdmin(String adminName, String adminPass) {
+        adminMapper.insertAdmin(adminName, adminPass);
+    }
 }

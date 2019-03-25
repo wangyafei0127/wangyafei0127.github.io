@@ -12,6 +12,8 @@ public interface AdminMapper {
 
     int insertSelective(Admin record);
 
+    int insertAdmin(@Param("adminName") String adminName, @Param("adminPass") String adminPass);
+
     Admin selectByPrimaryKey(Integer id);
 
     Admin selectByName(@Param("adminName") String adminName);
