@@ -1,6 +1,5 @@
 package com.chukyotech.server.user;
 
-import com.chukyotech.server.user.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -28,4 +27,12 @@ public interface UserMapper {
     int updateByPrimaryKeySelective(User record);
 
     int updateByPrimaryKey(User record);
+
+    int updateUser(@Param("id") Integer id,
+                   @Param("userName") String userName,
+                   @Param("userAge") Integer userAge,
+                   @Param("userPhone") String userPhone,
+                   @Param("userAddres") String userAddres,
+                   @Param("userLanguage") String userLanguage,
+                   @Param("userEmail") String userEmail);
 }

@@ -131,4 +131,15 @@
         user_email = #{userEmail,jdbcType=VARCHAR}
         where id = #{id,jdbcType=INTEGER}
     </update>
+
+    <update id="updateUser" parameterType="com.chukyotech.server.user.User">
+        update user_table
+        set user_name = #{userName,jdbcType=VARCHAR},
+        user_age = #{userAge,jdbcType=INTEGER},
+        user_phone = #{userPhone,jdbcType=VARCHAR},
+        user_addres = #{userAddres,jdbcType=VARCHAR},
+        user_language = #{userLanguage,jdbcType=VARCHAR},
+        user_email = #{userEmail,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
 </mapper>

@@ -2,6 +2,7 @@ package com.chukyotech.server.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import sun.management.Agent;
 
 import java.util.List;
 
@@ -19,8 +20,22 @@ public class UserService {
         return userMapper.selectUsers();
     }
 
-    public void insertUser(String userName, int userAge, String userPhone, String userAdress,
-                           String userLanguage, String userEmail) {
+    public void insertUser(String userName,
+                           Integer userAge,
+                           String userPhone,
+                           String userAdress,
+                           String userLanguage,
+                           String userEmail) {
         userMapper.insertUser(userName, userAge, userPhone, userAdress, userLanguage, userEmail);
+    }
+
+    public void updateUser(int id,
+                           String userName,
+                           Integer userAge,
+                           String userPhone,
+                           String userAdress,
+                           String userLanguage,
+                           String userEmail) {
+        userMapper.updateUser(id, userName, userAge, userPhone, userAdress, userLanguage, userEmail);
     }
 }
