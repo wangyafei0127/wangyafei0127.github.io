@@ -1,19 +1,14 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>home</title>
+    <meta charset="UTF-8" http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>中京</title>
 </head>
 <body style="margin-top: 30px">
 <div>
-    <div style="text-align: center">
-        <a href="/">
-            <img src="../static/walking-chicken.jpg" style="vertical-align: middle"
-                 width="60" height="60" alt="Image not found">
-        </a>
-        <span style="vertical-align: middle; margin-left: 20px">
-            中京国际后台管理系统
-        </span>
+    <div style="text-align: center;margin:0 auto;width: 1000px; ">
+        <a href="/"><img src="../static/images/walking-chicken.jpg" width="80" height="80" style="vertical-align: middle" alt="Image not found"></a>
+        <span style="vertical-align: middle; margin-left: 20px; font-size: 35px">中京国际后台管理系统</span>
     </div>
     <div style="border-style: solid; margin-top: 10px"></div>
 
@@ -22,25 +17,29 @@
             <tr>
                 <td width="150px" height="550px">
                     <div style="margin-left: 15px; padding-top: 30px">
-                        <a href="/"><button style="width: 120px">首页</button></a>
+                        <a href="adminRegisterPage">
+                            <button style="width: 120px">管理员注册</button>
+                        </a>
                     </div>
                     <div style="margin-left: 15px; padding-top: 30px">
-                        <a href="adminLogin"><button style="width: 120px">管理员登录</button></a>
+                        <a href="adminLogin">
+                            <button style="width: 120px">修改管理员密码</button>
+                        </a>
                     </div>
                     <div style="margin-left: 15px; padding-top: 30px">
-                        <a href="adminRegisterPage"><button style="width: 120px">管理员注册</button></a>
+                        <a href="userRegister">
+                            <button style="width: 120px">会员注册</button>
+                        </a>
                     </div>
                     <div style="margin-left: 15px; padding-top: 30px">
-                        <a href="adminLogin"><button style="width: 120px">修改管理员密码</button></a>
+                        <a href="userSelect">
+                            <button style="width: 120px">会员查询</button>
+                        </a>
                     </div>
                     <div style="margin-left: 15px; padding-top: 30px">
-                        <a href="userRegister"><button style="width: 120px">会员注册</button></a>
-                    </div>
-                    <div style="margin-left: 15px; padding-top: 30px">
-                        <a href="userSelect"><button style="width: 120px">会员查询</button></a>
-                    </div>
-                    <div style="margin-left: 15px; padding-top: 30px">
-                        <a href="userUpdatePage"><button style="width: 120px">修改会员信息</button></a>
+                        <a href="userUpdatePage">
+                            <button style="width: 120px">修改会员信息</button>
+                        </a>
                     </div>
                 </td>
             </tr>
@@ -55,7 +54,7 @@
             </tr>
         </table>
     </div>
-
 </div>
+
 </body>
 </html>
