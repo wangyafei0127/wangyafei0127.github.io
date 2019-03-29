@@ -39,6 +39,6 @@ public class AdminController {
     @PostMapping("/adminRegister")
     public String adminRegister(@ModelAttribute("admin") Admin admin) {
         adminService.insertAdmin(admin.getAdminName(), admin.getAdminPass());
-        return pageController.home();
+        return pageController.login();
     }
 }
