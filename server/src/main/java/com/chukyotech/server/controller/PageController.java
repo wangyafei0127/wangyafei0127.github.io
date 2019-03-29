@@ -12,7 +12,7 @@ public class PageController {
         return "login";
     }
 
-    @PostMapping("/home.html")
+    @GetMapping("/home.html")
     public String home() {
         return "home";
     }
@@ -20,5 +20,10 @@ public class PageController {
     @GetMapping("/adminRegister.html")
     public String adminRegister() {
         return "adminRegister";
+    }
+
+    @GetMapping("404")
+    public String page404() {
+        return "404";
     }
 }

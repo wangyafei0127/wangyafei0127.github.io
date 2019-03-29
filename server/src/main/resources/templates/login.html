@@ -15,7 +15,7 @@
     <div style="margin-top: 100px; text-align: center">
         <h1>请登录管理员账号</h1>
         <!--/*@thymesVar id="admin" type="com.chukyotech.server.admin.Admin"*/-->
-        <form action="home.html" method="post" th:object="${admin}">
+        <form action="/login" method="post" th:object="${admin}">
             <p>用户名：<input type="text" name="adminName"></p>
             <p>密码：&nbsp;&nbsp;&nbsp;<input type="text" name="adminPass"></p>
             <!--<p><input type="submit" name="submit"></p>-->
