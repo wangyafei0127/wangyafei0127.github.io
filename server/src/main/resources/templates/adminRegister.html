@@ -2,27 +2,26 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title>登录</title>
+    <title>home</title>
 </head>
 <body style="margin-top: 30px; background: #008793">
 <div>
     <div style="text-align: center;margin:0 auto;width: 1000px; ">
-        <a href="/"><img src="/static/images/chicken.png" width="80" height="80" style="vertical-align: middle" alt="Image not found"></a>
+        <a href="/"><img src="../static/images/chicken.png" width="80" height="80" style="vertical-align: middle" alt="Image not found"></a>
         <span style="vertical-align: middle; margin-left: 20px; font-size: 35px">中京国际后台管理系统</span>
     </div>
     <div style="border-style: solid; margin-top: 10px"></div>
 
     <div style="margin-top: 100px; text-align: center">
-        <h1>请登录管理员账号</h1>
+        <h1>请注册管理员账号</h1>
         <!--/*@thymesVar id="admin" type="com.chukyotech.server.admin.Admin"*/-->
-        <form action="home.html" method="post" th:object="${admin}">
+        <form action="adminRegister" method="post" th:object="${admin}">
             <p>用户名：<input type="text" name="adminName"></p>
             <p>密码：&nbsp;&nbsp;&nbsp;<input type="text" name="adminPass"></p>
-            <!--<p><input type="submit" name="submit"></p>-->
             <div style="margin-top: 40px">
-                <a href="adminRegister.html"><button type="button" style="width: 80px; height: 30px">注册</button></a>
+                <a href="/"><button type="button" style="width: 80px; height: 30px">返回登录</button></a>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <button type="submit" style="width: 80px; height: 30px">登录</button>
+                <button type="submit" style="width: 80px; height: 30px">注册</button>
             </div>
         </form>
     </div>

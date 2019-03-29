@@ -16,11 +16,6 @@ public class AdminController {
     @Autowired
     private PageController pageController;
 
-    @GetMapping("/adminLogin")
-    public String adminLogin() {
-        return "adminLogin";
-    }
-
     @PostMapping("/login")
     public String login(@ModelAttribute("admin") Admin admin) {
         Admin adminDb = adminService.selectByName(admin.getAdminName());
@@ -29,11 +24,6 @@ public class AdminController {
             return "home";
         }
         return "redirect:/home";
-    }
-
-    @GetMapping("/adminRegisterPage")
-    public String adminRegisterPage() {
-        return "adminRegisterPage";
     }
 
     @PostMapping("/adminRegister")
