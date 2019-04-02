@@ -1,6 +1,5 @@
 package com.chukyotech.server.user;
 
-import com.chukyotech.server.controller.PageController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,9 +10,6 @@ public class UserController {
 
     @Autowired
     private UserService userService;
-
-    @Autowired
-    private PageController pageController;
 
     @GetMapping("/getUser/{id}")
     public User selectUserById(@PathVariable("id") int id) {

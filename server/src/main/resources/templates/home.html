@@ -7,9 +7,10 @@
 <body style="margin-top: 30px; background: #008793">
 <div>
     <div style="text-align: center;margin:0 auto;width: 1000px; ">
-        <a href="/"><img src="../static/images/chicken.png" width="80" height="80" style="vertical-align: middle" alt="Image not found"></a>
+        <a href="/"><img src="/static/images/chicken.png" width="80" height="80" style="vertical-align: middle" alt="Image not found"></a>
         <span style="vertical-align: middle; margin-left: 20px; font-size: 35px">中京国际后台管理系统</span>
-        <span style="float: right; margin-right: 5px">欢迎<span th:text="${adminName}" style="color: white; font-weight: bold"></span>登录！</span>
+        <span style="float: right; margin-right: 5px">欢迎<!--/*@thymesVar id="adminName" type=""*/-->
+        <span th:text="${adminName}" style="color: white; font-weight: bold"></span>登录！</span>
     </div>
     <div style="border-style: solid; margin-top: 10px"></div>
 

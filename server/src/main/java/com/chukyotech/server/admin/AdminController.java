@@ -1,41 +1,50 @@
 package com.chukyotech.server.admin;
 
-import com.chukyotech.server.controller.PageController;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
-@Controller
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.Map;
+
+@RestController
 public class AdminController {
 
     @Autowired
     private AdminService adminService;
 
-    @Autowired
-    private PageController pageController;
+    @GetMapping("/")
+    public ModelAndView login() {
+        return new ModelAndView("login");
+    }
+
+    @GetMapping("/adminRegister.html")
+    public ModelAndView adminRegister() {
+        return new ModelAndView("adminRegister");
+    }
+
+    @GetMapping("404")
+    public ModelAndView page404() {
+        return new ModelAndView("404");
+    }
+
+    @GetMapping("/home")
+    public ModelAndView home(Map<String, Object> map) {
+        return adminService.home(map);
+    }
 
     @PostMapping("/login")
-    public String login(@ModelAttribute("admin") Admin admin, Model model) {
-        if (admin.getAdminName() == null || admin.getAdminPass() == null) {
-            return "redirect:/404";
-        }
-        Admin adminDb = adminService.selectByName(admin.getAdminName());
-        String adminPassDb = adminDb.getAdminPass();
-        if (admin.getAdminPass().equals(adminPassDb)) {
-            model.addAttribute("adminName", admin.getAdminName());
-            return pageController.home();
-        } else {
-            model.addAttribute("adminName", "未登录");
-        }
-        return pageController.home();
+    public String login(@ModelAttribute("admin") Admin admin, HttpServletResponse response) throws IOException {
+        return adminService.login(admin, response);
     }
 
     @PostMapping("/adminRegister")
-    public String adminRegister(@ModelAttribute("admin") Admin admin) {
+    public ModelAndView adminRegister(@ModelAttribute("admin") Admin admin) {
         adminService.insertAdmin(admin.getAdminName(), admin.getAdminPass());
-        return pageController.login();
+        return login();
     }
 }
