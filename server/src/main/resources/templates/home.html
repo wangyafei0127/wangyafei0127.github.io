@@ -7,7 +7,8 @@
 <body style="margin-top: 30px; background: #008793">
 <div>
     <div style="text-align: center;margin:0 auto;width: 1000px; ">
-        <a href="/home"><img src="/static/images/chicken.png" width="80" height="80" style="vertical-align: middle" alt="Image not found"></a>
+        <a href="/home"><img src="/static/images/chicken.png" width="80" height="80" style="vertical-align: middle"
+                             alt="Image not found"></a>
         <span style="vertical-align: middle; margin-left: 20px; font-size: 35px">中京国际后台管理系统</span>
         <span style="float: right; margin-right: 5px">欢迎<!--/*@thymesVar id="adminName" type=""*/-->
         <span th:text="${adminName}" style="color: white; font-weight: bold"></span>登录！</span>
@@ -18,26 +19,33 @@
         <table border="1">
             <tr>
                 <td width="150px" height="550px">
-                    <!--<div style="margin-left: 15px; padding-top: 30px">-->
-                        <!--<a href="adminLogin"><button style="width: 120px; height: 30px">管理员登录</button></a>-->
-                    <!--</div>-->
-                    <!--<div style="margin-left: 15px; padding-top: 30px">-->
-                        <!--<a href="adminRegisterPage"><button style="width: 120px; height: 30px">管理员注册</button></a>-->
-                    <!--</div>-->
-                    <!--<div style="margin-left: 15px; padding-top: 30px">-->
-                        <!--<a href="adminLogin"><button style="width: 120px; height: 30px">修改管理员密码</button></a>-->
-                    <!--</div>-->
-                    <div style="margin-left: 15px; padding-top: 30px">
-                        <a href="userRegister"><button style="width: 120px; height: 30px">会员注册</button></a>
-                    </div>
-                    <div style="margin-left: 15px; padding-top: 30px">
-                        <a href="userSelect"><button style="width: 120px; height: 30px">会员查询</button></a>
-                    </div>
-                    <div style="margin-left: 15px; padding-top: 30px">
-                        <a href="userUpdatePage"><button style="width: 120px; height: 30px">修改会员信息</button></a>
-                    </div>
-                    <div style="margin-left: 15px; padding-top: 30px">
-                        <a href="/"><button style="width: 120px; height: 30px">退出</button></a>
+                    <div style="width: 150px; height: 550px">
+                        <div style="">
+                            <a href="/userSelect">
+                                <button style="width: 150px; height: 30px">会员管理</button>
+                            </a>
+                        </div>
+                        <div style="padding-top: 30px">
+                            <a href="userRegister">
+                                <button style="width: 150px; height: 30px">会员注册</button>
+                            </a>
+                        </div>
+                        <div style="padding-top: 30px">
+                            <a href="userSelect">
+                                <button style="width: 150px; height: 30px">会员查询</button>
+                            </a>
+                        </div>
+
+                        <div style="padding-top: 30px">
+                            <a href="userUpdatePage">
+                                <button style="width: 150px; height: 30px">修改会员信息</button>
+                            </a>
+                        </div>
+                        <div style="padding-top: 310px">
+                            <a href="/">
+                                <button style="width: 150px; height: 30px">退出</button>
+                            </a>
+                        </div>
                     </div>
                 </td>
             </tr>
@@ -53,6 +61,10 @@
         </table>
     </div>
 </div>
+
+<script>
+    includeHTML();
+</script>
 
 </body>
 </html>

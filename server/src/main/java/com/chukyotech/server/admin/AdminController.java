@@ -1,5 +1,6 @@
 package com.chukyotech.server.admin;
 
+import jdk.nashorn.internal.objects.annotations.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -46,5 +47,10 @@ public class AdminController {
     public ModelAndView adminRegister(@ModelAttribute("admin") Admin admin) {
         adminService.insertAdmin(admin.getAdminName(), admin.getAdminPass());
         return login();
+    }
+
+    @GetMapping("/menu")
+    public ModelAndView menu() {
+        return new ModelAndView("menu");
     }
 }
