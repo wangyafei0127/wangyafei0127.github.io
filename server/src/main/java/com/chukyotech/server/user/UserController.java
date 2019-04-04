@@ -52,4 +52,9 @@ public class UserController {
         return userSelect(map);
     }
 
+    @GetMapping("/userManager")
+    public ModelAndView userManager(Map<String, Object> map) {
+        return userService.userManager(map);
+    }
+
 }
