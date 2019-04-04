@@ -12,6 +12,9 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private UserMapper mapper;
+
     @GetMapping("/getUser/{id}")
     public User selectUserById(@PathVariable("id") int id) {
         return userService.selectUserById(id);
@@ -31,7 +34,7 @@ public class UserController {
 
     @GetMapping("/userSelect")
     public ModelAndView userSelect(Map<String, Object> map) {
-        return userService.userManager(map);
+        return userService.userSelect(map);
     }
 
     @GetMapping("/userUpdatePage")
@@ -55,6 +58,18 @@ public class UserController {
     @GetMapping("/userManager")
     public ModelAndView userManager(Map<String, Object> map) {
         return userService.userManager(map);
+    }
+
+    @GetMapping("/userDelete/?id={id}")
+    public ModelAndView userDelete(@PathVariable("id") String id, Map<String, Object> map) {
+        Integer userId = Integer.parseInt(id.trim());
+        return userService.userDelete(userId, map);
+    }
+
+    @DeleteMapping("/userDe/?id={id}")
+    public void delete(@PathVariable("id") String id) {
+        int i = Integer.parseInt(id);
+        mapper.deleteByPrimaryKey(i);
     }
 
 }

@@ -26,10 +26,20 @@ public class UserService {
         return userMapper.selectUsers();
     }
 
-    public ModelAndView userManager(Map<String, Object> map) {
+    public ModelAndView userSelect(Map<String, Object> map) {
         String adminName = adminService.getAdminName();
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("userSelect");
+        map.put("userList", selectUsers());
+        modelAndView.addAllObjects(map);
+        modelAndView.addObject("adminName", adminName);
+        return modelAndView;
+    }
+
+    public ModelAndView userManager(Map<String, Object> map) {
+        String adminName = adminService.getAdminName();
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("userManager");
         map.put("userList", selectUsers());
         modelAndView.addAllObjects(map);
         modelAndView.addObject("adminName", adminName);
@@ -63,5 +73,10 @@ public class UserService {
     public ModelAndView userUpdatePage(Map<String, Object> map) {
         map.put("adminName", adminService.getAdminName());
         return new ModelAndView("userUpdatePage", map);
+    }
+
+    public ModelAndView userDelete(Integer id, Map<String, Object> map) {
+        userMapper.deleteByPrimaryKey(id);
+        return userManager(map);
     }
 }
