@@ -1,11 +1,12 @@
 package com.chukyotech.server.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
-@Controller
+import java.util.Map;
+
+@RestController
 public class UserController {
 
     @Autowired
@@ -17,30 +18,29 @@ public class UserController {
     }
 
     @PostMapping("/userInsert")
-    public String insertUser(@ModelAttribute("user") User user, Model model) {
+    public ModelAndView insertUser(@ModelAttribute("user") User user, Map<String, Object> map) {
         userService.insertUser(user.getUserName(), user.getUserAge(), user.getUserPhone(), user.getUserAddres(),
                 user.getUserLanguage(), user.getUserEmail());
-        return userSelect(model);
+        return userSelect(map);
     }
 
     @GetMapping("/userRegister")
-    public String userRegister() {
-        return "userRegister";
+    public ModelAndView userRegister(Map<String, Object> map) {
+        return userService.userRegister(map);
     }
 
     @GetMapping("/userSelect")
-    public String userSelect(Model model) {
-        model.addAttribute("userList", userService.selectUsers());
-        return "userSelect";
+    public ModelAndView userSelect(Map<String, Object> map) {
+        return userService.userManager(map);
     }
 
     @GetMapping("/userUpdatePage")
-    public String userUpdatePage() {
-        return "userUpdatePage";
+    public ModelAndView userUpdatePage(Map<String, Object> map) {
+        return userService.userUpdatePage(map);
     }
 
     @PostMapping("/userUpdate")
-    public String userUpdate(@ModelAttribute("user") User user, Model model) {
+    public ModelAndView userUpdate(@ModelAttribute("user") User user, Map<String, Object> map) {
         System.out.println(user.getUserAddres());
         userService.updateUser(user.getId(),
                 user.getUserName(),
@@ -49,7 +49,7 @@ public class UserController {
                 user.getUserAddres(),
                 user.getUserLanguage(),
                 user.getUserEmail());
-        return userSelect(model);
+        return userSelect(map);
     }
 
 }
