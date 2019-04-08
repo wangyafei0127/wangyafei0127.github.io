@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.Map;
 
 @RestController
@@ -60,16 +62,15 @@ public class UserController {
         return userService.userManager(map);
     }
 
-    @GetMapping("/userDelete/?id={id}")
-    public ModelAndView userDelete(@PathVariable("id") String id, Map<String, Object> map) {
+    @GetMapping("/userDelete")
+    public void userDelete(String id, Map<String, Object> map, HttpServletResponse response) {
         Integer userId = Integer.parseInt(id.trim());
-        return userService.userDelete(userId, map);
-    }
-
-    @DeleteMapping("/userDe/?id={id}")
-    public void delete(@PathVariable("id") String id) {
-        int i = Integer.parseInt(id);
-        mapper.deleteByPrimaryKey(i);
+        userService.userDelete(userId, map);
+        try {
+            response.sendRedirect("/userManager");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }
