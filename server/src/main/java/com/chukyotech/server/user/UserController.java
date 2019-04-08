@@ -26,7 +26,7 @@ public class UserController {
     public ModelAndView insertUser(@ModelAttribute("user") User user, Map<String, Object> map) {
         userService.insertUser(user.getUserName(), user.getUserAge(), user.getUserPhone(), user.getUserAddres(),
                 user.getUserLanguage(), user.getUserEmail());
-        return userSelect(map);
+        return userManager(map);
     }
 
     @GetMapping("/userRegister")
