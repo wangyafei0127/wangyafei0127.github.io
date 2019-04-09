@@ -1,5 +1,6 @@
 package com.chukyotech.server.user;
 
+import com.chukyotech.server.admin.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -13,6 +14,9 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private AdminService adminService;
 
     @Autowired
     private UserMapper mapper;
@@ -40,12 +44,21 @@ public class UserController {
     }
 
     @GetMapping("/userUpdatePage")
-    public ModelAndView userUpdatePage(Map<String, Object> map) {
-        return userService.userUpdatePage(map);
+    public ModelAndView userUpdate222(String id, Map<String, Object> map) {
+        User user = userService.selectUserById(Integer.parseInt(id));
+        map.put("user", user);
+
+        String adminName = adminService.getAdminName();
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("userUpdatePage");
+        modelAndView.addObject("adminName", adminName);
+        modelAndView.addAllObjects(map);
+
+        return modelAndView;
     }
 
-    @PostMapping("/userUpdate")
-    public ModelAndView userUpdate(@ModelAttribute("user") User user, Map<String, Object> map) {
+    @PostMapping("/userUpdatePage/userUpdate")
+    public void userUpdate(@ModelAttribute("user") User user, Map<String, Object> map, HttpServletResponse response) {
         System.out.println(user.getUserAddres());
         userService.updateUser(user.getId(),
                 user.getUserName(),
@@ -54,7 +67,11 @@ public class UserController {
                 user.getUserAddres(),
                 user.getUserLanguage(),
                 user.getUserEmail());
-        return userSelect(map);
+        try {
+            response.sendRedirect("/userManager");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @GetMapping("/userManager")

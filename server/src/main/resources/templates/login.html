@@ -16,8 +16,8 @@
         <h1>请登录管理员账号</h1>
         <!--/*@thymesVar id="admin" type="com.chukyotech.server.admin.Admin"*/-->
         <form action="/login" method="post" th:object="${admin}">
-            <p>用户名：<input type="text" name="adminName"></p>
-            <p>密码：&nbsp;&nbsp;&nbsp;<input type="text" name="adminPass"></p>
+            <p>用户名：<input type="text" name="adminName" style="width: 150px; height: 20px;"></p>
+            <p>密码：&nbsp;&nbsp;&nbsp;<input type="password" name="adminPass" style="width: 150px; height: 20px;"></p>
             <!--<p><input type="submit" name="submit"></p>-->
             <div style="margin-top: 40px">
                 <a href="/adminRegister.html"><button type="button" style="width: 80px; height: 30px">注册</button></a>

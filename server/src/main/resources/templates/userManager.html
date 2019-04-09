@@ -10,7 +10,7 @@
         <a href="/home"><img src="../static/images/chicken.png" width="80" height="80" style="vertical-align: middle" alt="Image not found"></a>
         <span style="vertical-align: middle; margin-left: 20px; font-size: 35px">中京国际后台管理系统</span>
         <span style="float: right; margin-right: 5px">欢迎<!--/*@thymesVar id="adminName" type=""*/-->
-        <span th:text="${adminName}" style="color: white; font-weight: bold"></span>登录！</span>
+        <span th:text="${adminName}" style="color: orange; font-weight: bold"></span>登录！</span>
     </div>
     <div style="border-style: solid; margin-top: 10px"></div>
 
@@ -29,12 +29,7 @@
                                 <button style="width: 150px; height: 30px">会员注册</button>
                             </a>
                         </div>
-                        <div style="padding-top: 30px">
-                            <a href="userUpdatePage">
-                                <button style="width: 150px; height: 30px">修改会员信息</button>
-                            </a>
-                        </div>
-                        <div style="padding-top: 370px">
+                        <div style="padding-top: 430px">
                             <a href="/">
                                 <button style="width: 150px; height: 30px">退出</button>
                             </a>
@@ -73,11 +68,8 @@
                                 <td th:text="${user.getUserLanguage()}"></td>
                                 <td th:text="${user.getUserEmail()}"></td>
                                 <td>
-                                   <!--/*@thymesVar id="id" type="com.chukyotech.server.user.User"*/-->
-                                   <!--<form action="/userDelete" method="get" th:object="${user}">-->
-                                       <!--<input type="submit" name="id" value="删除">-->
-                                   <!--</form>-->
                                     <a th:href="@{/userDelete/(id=${user.getId()})}"><button>删除</button></a>
+                                    <a th:href="@{/userUpdatePage/(id=${user.getId()})}"><button>更改</button></a>
                                 </td>
                             </tr>
                             </tbody>

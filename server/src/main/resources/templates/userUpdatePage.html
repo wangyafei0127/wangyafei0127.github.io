@@ -10,7 +10,7 @@
         <a href="/home"><img src="../static/images/chicken.png" width="80" height="80" style="vertical-align: middle" alt="Image not found"></a>
         <span style="vertical-align: middle; margin-left: 20px; font-size: 35px">中京国际后台管理系统</span>
         <span style="float: right; margin-right: 5px">欢迎<!--/*@thymesVar id="adminName" type=""*/-->
-        <span th:text="${adminName}" style="color: white; font-weight: bold"></span>登录！</span>
+        <span th:text="${adminName}" style="color: orange; font-weight: bold"></span>登录！</span>
     </div>
     <div style="border-style: solid; margin-top: 10px"></div>
 
@@ -29,12 +29,7 @@
                                 <button style="width: 150px; height: 30px">会员注册</button>
                             </a>
                         </div>
-                        <div style="padding-top: 30px">
-                            <a href="userUpdatePage">
-                                <button style="width: 150px; height: 30px">修改会员信息</button>
-                            </a>
-                        </div>
-                        <div style="padding-top: 370px">
+                        <div style="padding-top: 430px">
                             <a href="/">
                                 <button style="width: 150px; height: 30px">退出</button>
                             </a>
@@ -50,15 +45,19 @@
                 <td width="1000px" height="550px">
                     <h1>请输入要修改的会员信息</h1>
                     <!--/*@thymesVar id="user" type="com.chukyotech.server.user.User"*/-->
-                    <form action="userUpdate" method="post" th:object="${user}">
-                        <p>ID：&nbsp;&nbsp;&nbsp;<input type="text" name="id"></p>
-                        <p>姓名：<input type="text" name="userName"></p>
-                        <p>年龄：<input type="text" name="userAge"></p>
-                        <p>电话：<input type="text" name="userPhone"></p>
-                        <p>住址：<input type="text" name="userAddres"></p>
-                        <p>技术：<input type="text" name="userLanguage"></p>
-                        <p>邮箱：<input type="text" name="userEmail"></p>
-                        <p><input type="submit" value="更改"></p>
+                    <form action="/userUpdatePage/userUpdate" method="post" th:object="${user}">
+                        <p>ID：&nbsp;&nbsp;&nbsp;<input type="text" name="id" style="width: 200px; height: 20px" th:value="${user.getId()}"></p>
+                        <p>姓名：<input type="text" name="userName" style="width: 200px; height: 20px" th:value="${user.getUserName()}"></p>
+                        <p>年龄：<input type="text" name="userAge" style="width: 200px; height: 20px" th:value="${user.getUserAge()}"></p>
+                        <p>电话：<input type="text" name="userPhone" style="width: 200px; height: 20px" th:value="${user.getUserPhone()}"></p>
+                        <p>住址：<input type="text" name="userAddres" style="width: 200px; height: 20px" th:value="${user.getUserAddres()}"></p>
+                        <p>技术：<input type="text" name="userLanguage" style="width: 200px; height: 20px" th:value="${user.getUserLanguage()}"></p>
+                        <p>邮箱：<input type="text" name="userEmail" style="width: 200px; height: 20px" th:value="${user.getUserEmail()}"></p>
+                        <div style="margin-top: 40px">
+                            <a href="/home"><button type="button" style="width: 80px; height: 30px">取消</button></a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button type="submit" style="width: 80px; height: 30px; background: orange">更改</button>
+                        </div>
                     </form>
                 </td>
             </tr>
