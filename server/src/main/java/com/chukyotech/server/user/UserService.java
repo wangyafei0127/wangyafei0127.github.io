@@ -4,7 +4,6 @@ import com.chukyotech.server.admin.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
-import sun.management.Agent;
 
 import java.util.List;
 import java.util.Map;
@@ -65,9 +64,9 @@ public class UserService {
         userMapper.updateUser(id, userName, userAge, userPhone, userAdress, userLanguage, userEmail);
     }
 
-    public ModelAndView userRegister(Map<String, Object> map) {
+    public ModelAndView userRegisterPage(Map<String, Object> map) {
         map.put("adminName", adminService.getAdminName());
-        return new ModelAndView("userRegister", map);
+        return new ModelAndView("userRegisterPage", map);
     }
 
     public ModelAndView userUpdatePage(Map<String, Object> map) {

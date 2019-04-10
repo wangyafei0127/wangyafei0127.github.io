@@ -7,77 +7,60 @@
 <body style="margin-top: 30px; background: #008793">
 <div>
     <div style="text-align: center;margin:0 auto;width: 1000px; ">
-        <a href="/home"><img src="../static/images/chicken.png" width="80" height="80" style="vertical-align: middle" alt="Image not found"></a>
+        <a href="/home"><img src="../static/images/chicken.png" width="80" height="80" style="vertical-align: middle"
+                             alt="Image not found"></a>
         <span style="vertical-align: middle; margin-left: 20px; font-size: 35px">中京国际后台管理系统</span>
-        <span style="float: right; margin-right: 5px">欢迎<!--/*@thymesVar id="adminName" type=""*/-->
-        <span th:text="${adminName}" style="color: orange; font-weight: bold"></span>登录！</span>
+
+        <div style="float: right">
+            <a href="/"><button style="width: 40px; height: 20px">退出</button></a>
+        </div>
+        <span style="float: right">欢迎<!--/*@thymesVar id="adminName" type=""*/-->
+        <span th:text="${adminName}" style="color: orange; font-weight: bold;"></span>登录！</span>
     </div>
     <div style="border-style: solid; margin-top: 10px"></div>
 
-    <div style="margin-top: 50px; margin-left: 100px; float: left">
-        <table border="1">
-            <tr>
-                <td width="150px" height="550px">
-                    <div style="width: 150px; height: 550px">
-                        <div style="">
-                            <a href="/userManager">
-                                <button style="width: 150px; height: 30px">会员管理</button>
-                            </a>
-                        </div>
-                        <div style="padding-top: 30px">
-                            <a href="userRegister">
-                                <button style="width: 150px; height: 30px">会员注册</button>
-                            </a>
-                        </div>
-                        <div style="padding-top: 430px">
-                            <a href="/">
-                                <button style="width: 150px; height: 30px">退出</button>
-                            </a>
-                        </div>
-                    </div>
-                </td>
-            </tr>
-        </table>
-    </div>
-    <div style="margin-top: 50px; margin-left: 10px; float: left">
-        <table border="1" style="text-align: center">
-            <tr>
-                <td width="1000px" height="550px">
-                    <h1>会员管理</h1>
-                    <div>
-                        <table border="1" width="1000px">
-                            <thead>
-                            <th>ID</th>
-                            <th>姓名</th>
-                            <th>年龄</th>
-                            <th>电话</th>
-                            <th>住址</th>
-                            <th>技术</th>
-                            <th>邮箱</th>
-                            <th>操作</th>
-                            </thead>
-                            <tbody>
-                            <!--/*@thymesVar id="userList" type="com.chukyotech.server.user.User"*/-->
-                            <tr th:each="user:${userList}">
-                                <!--/*@thymesVar id="count" type="com.chukyotech.server.user.User"*/-->
-                                <td th:text="${user.getId()}"></td>
-                                <td th:text="${user.getUserName()}"></td>
-                                <td th:text="${user.getUserAge()}"></td>
-                                <td th:text="${user.getUserPhone()}"></td>
-                                <td th:text="${user.getUserAddres()}"></td>
-                                <td th:text="${user.getUserLanguage()}"></td>
-                                <td th:text="${user.getUserEmail()}"></td>
-                                <td>
-                                    <a th:href="@{/userDelete/(id=${user.getId()})}"><button>删除</button></a>
-                                    <a th:href="@{/userUpdatePage/(id=${user.getId()})}"><button>更改</button></a>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </td>
-            </tr>
-        </table>
+    <div style="margin-left: 200px">
+        <h1>会员管理</h1>
+        <div>
+            <table border="1" width="1000px" style="text-align: center">
+                <div style="">
+                    <a href="/userRegisterPage">
+                        <button>会员注册</button>
+                    </a>
+                </div>
+                <thead>
+                <th>ID</th>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>电话</th>
+                <th>住址</th>
+                <th>技术</th>
+                <th>邮箱</th>
+                <th>操作</th>
+                </thead>
+                <tbody>
+                <!--/*@thymesVar id="userList" type="com.chukyotech.server.user.User"*/-->
+                <tr th:each="user:${userList}">
+                    <!--/*@thymesVar id="count" type="com.chukyotech.server.user.User"*/-->
+                    <td th:text="${user.getId()}"></td>
+                    <td th:text="${user.getUserName()}"></td>
+                    <td th:text="${user.getUserAge()}"></td>
+                    <td th:text="${user.getUserPhone()}"></td>
+                    <td th:text="${user.getUserAddres()}"></td>
+                    <td th:text="${user.getUserLanguage()}"></td>
+                    <td th:text="${user.getUserEmail()}"></td>
+                    <td>
+                        <a th:href="@{/userDelete/(id=${user.getId()})}">
+                            <button>删除</button>
+                        </a>
+                        <a th:href="@{/userUpdatePage/(id=${user.getId()})}">
+                            <button>更改</button>
+                        </a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 </body>

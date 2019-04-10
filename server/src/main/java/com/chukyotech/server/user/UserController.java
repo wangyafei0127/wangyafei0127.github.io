@@ -33,9 +33,9 @@ public class UserController {
         return userManager(map);
     }
 
-    @GetMapping("/userRegister")
-    public ModelAndView userRegister(Map<String, Object> map) {
-        return userService.userRegister(map);
+    @GetMapping("/userRegisterPage")
+    public ModelAndView userRegisterPage(Map<String, Object> map) {
+        return userService.userRegisterPage(map);
     }
 
     @GetMapping("/userSelect")
@@ -88,6 +88,11 @@ public class UserController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @GetMapping("/admin")
+    public ModelAndView admin() {
+        return new ModelAndView("home/login");
     }
 
 }

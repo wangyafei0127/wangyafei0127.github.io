@@ -10,50 +10,21 @@
         <a href="/home"><img src="/static/images/chicken.png" width="80" height="80" style="vertical-align: middle"
                              alt="Image not found"></a>
         <span style="vertical-align: middle; margin-left: 20px; font-size: 35px">中京国际后台管理系统</span>
-        <span style="float: right; margin-right: 5px">欢迎<!--/*@thymesVar id="adminName" type=""*/-->
+
+        <div style="float: right">
+            <a href="/"><button style="width: 40px; height: 20px">退出</button></a>
+        </div>
+        <span style="float: right">欢迎<!--/*@thymesVar id="adminName" type=""*/-->
         <span th:text="${adminName}" style="color: orange; font-weight: bold;"></span>登录！</span>
     </div>
     <div style="border-style: solid; margin-top: 10px"></div>
 
-    <div style="margin-top: 50px; margin-left: 100px; float: left">
-        <table border="1">
-            <tr>
-                <td width="150px" height="550px">
-                    <div style="width: 150px; height: 550px">
-                        <div style="">
-                            <a href="/userManager">
-                                <button style="width: 150px; height: 30px">会员管理</button>
-                            </a>
-                        </div>
-                        <div style="padding-top: 30px">
-                            <a href="userRegister">
-                                <button style="width: 150px; height: 30px">会员注册</button>
-                            </a>
-                        </div>
-                        <div style="padding-top: 430px">
-                            <a href="/">
-                                <button style="width: 150px; height: 30px">退出</button>
-                            </a>
-                        </div>
-                    </div>
-                </td>
-            </tr>
-        </table>
-    </div>
-    <div style="margin-top: 50px; margin-left: 10px; float: left">
-        <table border="1" style="text-align: center">
-            <tr>
-                <td width="1000px" height="550px">
-                    <h1>欢迎登录中京国际后台管理平台！</h1>
-                </td>
-            </tr>
-        </table>
+    <div style="margin-left: 200px">
+        <a href="/userManager">
+            <button style="width: 100px; height: 30px">会员管理</button>
+        </a>
     </div>
 </div>
-
-<script>
-    includeHTML();
-</script>
 
 </body>
 </html>

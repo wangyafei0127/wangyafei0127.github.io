@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>管理员注册</title>
+</head>
+<body style="margin-top: 30px; background: #008793">
+<div>
+    <div style="text-align: center;margin:0 auto;width: 1000px; ">
+        <a href="/home"><img src="../static/images/chicken.png" width="80" height="80" style="vertical-align: middle" alt="Image not found"></a>
+        <span style="vertical-align: middle; margin-left: 20px; font-size: 35px">中京国际后台管理系统</span>
+
+        <div style="float: right">
+            <a href="/"><button style="width: 40px; height: 20px">退出</button></a>
+        </div>
+        <span style="float: right">欢迎<!--/*@thymesVar id="adminName" type=""*/-->
+        <span th:text="${adminName}" style="color: orange; font-weight: bold;"></span>登录！</span>
+    </div>
+    <div style="border-style: solid; margin-top: 10px"></div>
+
+    <div style="text-align: center">
+        <h1>请输入会员注册信息</h1>
+        <!--/*@thymesVar id="user" type="com.chukyotech.server.user.User"*/-->
+        <form action="userInsert" method="post" th:object="${user}">
+            <p>姓名：<input type="text" name="userName" style="width: 200px; height: 20px"></p>
+            <p>年龄：<input type="text" name="userAge" style="width: 200px; height: 20px"></p>
+            <p>电话：<input type="text" name="userPhone" style="width: 200px; height: 20px"></p>
+            <p>住址：<input type="text" name="userAddres" style="width: 200px; height: 20px"></p>
+            <p>技术：<input type="text" name="userLanguage" style="width: 200px; height: 20px"></p>
+            <p>邮箱：<input type="text" name="userEmail" style="width: 200px; height: 20px"></p>
+            <div style="margin-top: 40px">
+                <a href="/home"><button type="button" style="width: 80px; height: 30px">取消</button></a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button type="submit" style="width: 80px; height: 30px; background: orange">注册</button>
+            </div>
+        </form>
+    </div>
+
+</div>
+</body>
+</html>
