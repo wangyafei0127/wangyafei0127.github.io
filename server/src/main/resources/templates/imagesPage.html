@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>中京</title>
+    <title>精美图片</title>
 </head>
 <body style="margin-top: 30px; background: #008793">
 <div>
@@ -26,6 +26,22 @@
         <a href="/userManager" style="margin-left: 80px"><button style="width: 100px; height: 30px">热门歌曲</button></a>
         <a href="/userManager" style="margin-left: 80px"><button style="width: 100px; height: 30px">精选视频</button></a>
     </div>
+
+    <form action="/searchImages" method="get" style="margin-top: 30px">
+        <input type="text" name="content">
+        <button type="submit">搜索</button>
+    </form>
+
+    <div>
+        <img src="https://source.unsplash.com/featured/?{KEYWORD},{KEYWORD}" width="320" height="180">
+        <img src="https://source.unsplash.com/collection/190727/1600x900" width="320" height="180">
+        <img src="https://source.unsplash.com/collection/190728/1600x900" width="320" height="180">
+        <img src="https://source.unsplash.com/collection/190726/1600x900" width="320" height="180">
+        <img src="https://source.unsplash.com/user/erondu/1600x900" width="320" height="180"><br>
+        <img src="https://source.unsplash.com/user/erondu/1600x900" width="320" height="180">
+        <img src="https://source.unsplash.com/1600x900/?woman" width="320" height="180">
+    </div>
+
 </div>
 
 </body>
